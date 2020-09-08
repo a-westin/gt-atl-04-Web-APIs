@@ -1,0 +1,40 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Borrowed from "build a quiz app w/ js" youtube vidoe */
+body {
+  padding: 0;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.instructions {
+  font-size: medium;
+  text-align: center;
+}
+
+.startpage-buttons {
+  background-color: rgb(80, 2, 114);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  box-shadow: black;
+}
+
+.endpage-buttons {
+  background-color: rgb(80, 2, 114);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  box-shadow: black;
+}
