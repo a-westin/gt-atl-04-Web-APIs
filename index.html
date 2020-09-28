@@ -9,42 +9,49 @@
   <body>
     <div class="container">
       <div id="startpage">
+        <div id="timer">
+        <header style="text-align: right">Time:</header>
+        </div>
         <h1 id="header">Coding Quiz Challenge</h1>
         <h2 class="instructions">
           Try to answer the following code-related questions within the time
           limit.
         </h2>
         <h3 class="instructions">
-          Keep in mind that incorrect answers will penalize your score/time by
+          Correct answers are worth 10 points, but incorrect answers will penalize your time by
           10 seconds!
         </h3>
         <div style="text-align: center">
-          <button class="startpage-buttons">Start Quiz</button>
-          <button class="startpage-buttons">High Scores</button>
+          <button class="startpage-buttons" id="start-button">
+            Start Quiz
+          </button>
+          <button class="startpage-buttons" id="high-scores">High Scores</button>
         </div>
       </div>
-      <div id="quiz">
-        <div id="timer">Time:</div>
-        <div id="questions"><p></p></div>
-        <button id="1">1.</button>
-        <button id="2">2.</button>
-        <button id="3">3.</button>
-        <button id="4">4.</button>
+      <div class="container" id="quiz-container">
+        <div id="questions">
+          <button class="question-btns" id="one">1.</button>
+          <button class="question-btns" id="two">2.</button>
+          <button class="question-btns" id="three">3.</button>
+          <button class="question-btns" id="four">4.</button>
+        </div>
       </div>
-      <div id="endpage">
-        <div id="score"></div>
+      <div class ="container" id="endpage-container">
+        <div style="text-align: center" id="highscore-page">
+          <h4 id="high-scores">High Scores</h4>
+        </div>
+        <div style="text-align: center" id="score">
         <input
           type="text"
-          size="40"
+          size="60"
           placeholder="Enter your initials"
           id="initials"
         />
+      </div>
+      </div>
+      <br></br>
+      <div style="text-align: center" id="endpage-btns">
         <button class="endpage-buttons">Submit</button>
-      </div>
-      <div id="highscore-page">
-        <h4>High Scores</h4>
-      </div>
-      <div id="endpageBtns">
         <button class="endpage-buttons">Home</button>
       </div>
     </div>

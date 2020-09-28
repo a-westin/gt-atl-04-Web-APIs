@@ -2,10 +2,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Borrowed from "build a quiz app w/ js" youtube vidoe */
+#timer {
+  margin-right: 30px;
+  display: none;
+}
+
+.container {
+  width: 100%;
+}
+
 body {
   padding: 0;
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,4 +44,36 @@ body {
   border-radius: 4px;
   font-size: 20px;
   box-shadow: black;
+  display: inline;
+}
+
+#endpage-btns {
+  display: none;
+}
+
+#quiz-container {
+  display: none;
+}
+
+#endpage-container {
+  display: none;
+}
+
+.question-btns {
+  background-color: rgb(80, 2, 114);
+  color: white;
+  border: none;
+  margin: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  box-shadow: black;
+  display: block;
+}
+
+#high-scores {
+  font-size: xx-large;
+}
+
+#initials {
+  align-content: center;
 }
