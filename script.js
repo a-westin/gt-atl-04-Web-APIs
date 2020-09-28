@@ -1,21 +1,27 @@
 // Accessing HTML elements in the DOM
 var startButtonEl = document.getElementById("start-button");
-// console.log(startButtonEl);
 var startpageEl = document.getElementById("startpage");
-// console.log("This is the start page");
-var currentQuestion = 0;
-var score = 0;
-var totalQuestions = questions.length;
 
 var quizContainerEl = document.getElementById("quiz-container");
 var quizQuestionsEl = document.getElementById("questions");
 var endpageContainerEl = document.getElementById("endpage-container");
 var endpageButtonsEl = document.getElementById("endpage-btns");
 
+var highScores = document.getElementById("high-scores");
+var timer = document.getElementById("timer");
+
 var questionBtnOne = document.getElementById("one");
 var questionBtnTwo = document.getElementById("two");
 var questionBtnThree = document.getElementById("three");
 var questionBtnFour = document.getElementById("four");
+
+var currentQuestion = 0;
+var score = 0;
+var totalQuestions = questions.length;
+var timerInterval;
+var timeLeft = 60;
+var highScores = [];
+var finalScore;
 
 // Showing/hiding the start button
 // function myFunction() {
@@ -78,12 +84,25 @@ var questions = [
   },
 ];
 
+// Starting the game when user clicks the start button
+startButtonEl.addEventListener("click", function () {
+  startTimer();
+  showQuestions();
+});
 
-// // Starting the game
-// function startGame (questionIndex) {
-//   var q = questions[questionIndex];
-//   quizQuestionsEl.textContent = (questionIndex + 1) + '.' + q.question;
-//   one.textContent = q.questionOne;
-//   two.textContent = q.questionTwo;
-//   three.textContent = q.questionThree;
-// };
+highScores.addEventListener("click", function () {
+  showHighscores();
+});
+
+// Starting the timer once the quiz begins
+function startTimer() {
+  var timerInterval = setInterval(function () {
+    timer.textContent = "Timer: " + timeLeft;
+    timeLeft--;
+    // If time runs out or the last question is answered, stop the timer
+    if (timeLeft < 0 || currentQuestion === questions.length) {
+      clearInterval(timerInterval);
+      setTimeout(gameOver, 1000);
+    }
+  }, 1000);
+}
