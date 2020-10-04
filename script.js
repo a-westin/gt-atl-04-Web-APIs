@@ -200,5 +200,53 @@ function quizEnd() {
   submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
     event.stopImmediatePropagation();
+
+    var initials = userInput.value;
+    // Storing highscores info 
+    if (JSON.parse(localStorage.getItem("highscores")) == null || (highScores.length > 0) {
+      highScores.push({initials: initials, score: finalScore});
+      localStorage.setItem("highscores", JSON.stringify(highScores));
+    } 
+    viewScores();
   });
+}
+
+// Viewing highscores page
+function viewScores() {
+  startpageEl.innerHTML = "";
+  endpageContainerEl.innerHTML = "";
+  highScores.innerHTML = "";
+  
+  var scoresHeader = document.createElement("h2");
+  scoresHeader.setAttribute("class", "col-lg-12");
+  scoresHeader.textContent = "Highscores";
+  highScores.appendChild(scoresHeader);
+
+  var scoresTable = document.createElement("table");
+  scoresTable.setAttribute("class", "table col-lg-12");
+  var tableRow = document.createElement("tr");
+  var initialsHeader = document.createElement("th");
+  var scoreHeader = document.createElement("th");
+  initialsHeader.textContent = "Initials";
+  scoreHeader.textContent = "Score";
+  tableRow.appendChild(initialsHeader);
+  tableRow.appendChild(scoreHeader);
+  scoresTable.appendChild(tableRow);
+
+  // Looping through local storage to display highscores array
+  for (
+    var highscoresArray = 0;
+    highscoresArray < highScores.length;
+    highscoresArray++
+  ) {
+    var rowEl = document.createElement("tr");
+    var initialsEl = document.createElement("td");
+    var scoresEl = document.createElement("td");
+    var savedScores = JSON.parse(localStorage.getItem("highscores"));
+    initialsEl.textContent = savedScores[highscoresArray].initials;
+    scoresEl.textContent = savedScores[highscoresArray].score;
+    rowEl.appendChild(initialsEl);
+    rowEl.appendChild(scoresEl);
+
+  }
 }
