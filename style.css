@@ -2,25 +2,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#timer {
-  margin-right: 30px;
-  display: none;
-}
-
 .container {
-  width: 100%;
+  margin-top: 5em;
+  width: 50%;
 }
 
-body {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#header {
-  font-weight: bold;
+h1 {
   text-align: center;
+  font-weight: bold;
+  padding-top: 20px;
 }
 
 .instructions {
@@ -28,52 +18,31 @@ body {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
 #view-scores {
-  background-color: rgb(80, 2, 114);
-  color: white;
-  border: none;
-  border-radius: 4px;
+  color: rgb(80, 2, 114);
+  background-color: white;
+  font-weight: bold;
   font-size: 20px;
-  box-shadow: black;
+  text-align: left;
 }
 
-.endpage-buttons {
-  background-color: rgb(80, 2, 114);
-  color: white;
-  border: none;
-  border-radius: 4px;
+#timer {
+  color: rgb(80, 2, 114);
+  background-color: white;
+  font-weight: bold;
   font-size: 20px;
-  box-shadow: black;
-  display: inline;
+  text-align: right;
 }
 
-#endpage-btns {
-  display: none;
-}
-
-#quiz-container {
-  display: none;
-}
-
-#endpage-container {
-  display: none;
-}
-
-.question-btns {
-  background-color: rgb(80, 2, 114);
-  color: white;
-  border: none;
-  margin: 10px;
-  border-radius: 4px;
+.btn {
+  color: rgb(80, 2, 114);
+  background-color: white;
+  font-weight: bold;
   font-size: 20px;
-  box-shadow: black;
-  display: block;
-}
-
-#high-scores {
-  font-size: xx-large;
-}
-
-#initials {
-  align-content: center;
+  text-align: left;
 }

@@ -75,17 +75,17 @@ var questionsArray = [
 startApp();
 
 function startApp() {
-  timer.textContent = "Timer: ";
   var homepageHeader = document.createElement("h1");
   homepageHeader.textContent = "Coding Quiz Challenge";
   startpageEl.appendChild(homepageHeader);
   var instructions = document.createElement("p");
   instructions.textContent =
-    "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
+    "Try to answer the following code-related questions within the time limit. \n Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
   startpageEl.appendChild(instructions);
   var startButton = document.createElement("button");
   startButton.textContent = "Start Quiz";
   startpageEl.appendChild(startButton);
+  timer.textContent = "Time: ";
 
   // Starting the game when user clicks the start button
   startButton.addEventListener("click", function () {
@@ -114,7 +114,7 @@ function startTimer() {
 // Displaying questions once quiz begins
 function showQuestions() {
   startpageEl.innerHTML = "";
-  resultsContainerEl.innerHTML = "";
+  endpageContainerEl.innerHTML = "";
 
   if (currentQuestion === questionsArray.length) {
     return;
@@ -149,7 +149,7 @@ function showQuestions() {
         event.target.textContent == questionsArray[currentQuestion].rightAnswer
       ) {
         quizContainerEl.innerHTML = "";
-        var rightAnswerEl = document.createElement("dialog");
+        var rightAnswerEl = document.createElement("caption");
         rightAnswerEl.textContent = "Correct!";
         resultsContainerEl.appendChild(rightAnswerEl);
         currentQuestion++;
@@ -158,7 +158,7 @@ function showQuestions() {
       else {
         timeLeft = timeLeft - 10;
         quizContainerEl.innerHTML = "";
-        var wrongAnswerEl = document.createElement("dialog");
+        var wrongAnswerEl = document.createElement("caption");
         wrongAnswerEl.textContent = "Wrong!";
         resultsContainerEl.appendChild(wrongAnswerEl);
         currentQuestion++;
