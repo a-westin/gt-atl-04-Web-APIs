@@ -153,7 +153,7 @@ function showQuestions() {
         resultsContainerEl.appendChild(rightAnswerEl);
         currentQuestion++;
       }
-      // Else statment for wrong answer
+      // Else statement for wrong answer
       else {
         timeLeft = timeLeft - 10;
         quizContainerEl.innerHTML = "";
@@ -164,4 +164,25 @@ function showQuestions() {
       }
     }
   });
+}
+
+// Ending the quiz
+function quizEnd() {
+  quizContainerEl.innerHTML = "";
+  resultsContainerEl.innerHTML = "";
+  var endpageHeader = document.createElement("h2");
+  endpageHeader.textContent = "All done!";
+  endpageContainerEl.appendChild(endpageHeader);
+
+  var finalScore = timeLeft + 1;
+  var finalScoreEl = document.createElement("p");
+  finalScoreEl.setAttribute("class", "col-lg-12");
+  finalScoreEl.textContent = "Your final score is " + finalScore;
+  endpageContainerEl.appendChild(finalScoreEl);
+  // Form to enter info for highscores
+  var highscoresEl = document.createElement("form");
+  var label = document.createElement("label");
+  label.setAttribute("class", "form-group mb-2");
+  label.textContent = "Enter initials: ";
+  highscoresEl.appendChild(label);
 }
