@@ -247,6 +247,18 @@ function viewScores() {
     scoresEl.textContent = savedScores[highscoresArray].score;
     rowEl.appendChild(initialsEl);
     rowEl.appendChild(scoresEl);
-
   }
+  highScores.appendChild(scoresTable);
+
+  // Button to go back
+  var backBtn = document.createElement("button");
+  backBtn.setAttribute("class", "btn");
+  backBtn.textContent = "Go back";
+  backBtn.appendChild(highScores);
+  //Button to clear scores 
+  var clearScoresBtn = document.createElement("button");
+  clearScoresBtn.setAttribute("class", "btn");
+  clearScoresBtn.textContent = "Clear highscores";
+  clearScoresBtn.appendChild(highScores);
+
 }
