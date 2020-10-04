@@ -15,6 +15,7 @@ var answersArray;
 var wrongAnswer = timeLeft - 10;
 var highScores = [];
 var finalScore;
+var initials;
 
 // Defining questions & answers array
 var questionsArray = [
@@ -153,6 +154,7 @@ function showQuestions() {
         rightAnswerEl.textContent = "Correct!";
         resultsContainerEl.appendChild(rightAnswerEl);
         currentQuestion++;
+        setTimeout(showQuestions, 1000);
       }
       // Else statement for wrong answer
       else {
@@ -162,6 +164,7 @@ function showQuestions() {
         wrongAnswerEl.textContent = "Wrong!";
         resultsContainerEl.appendChild(wrongAnswerEl);
         currentQuestion++;
+        setTimeout(showQuestions, 1000);
       }
     }
   });
