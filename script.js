@@ -97,7 +97,7 @@ highScores.addEventListener("click", function () {
 // Starting the timer once the quiz begins
 function startTimer() {
   var timerInterval = setInterval(function () {
-    timer.textContent = "Timer: " + timeLeft;
+    timer.textContent = "Time: " + timeLeft;
     timeLeft--;
     // If time runs out or the last question is answered, stop the timer
     if (timeLeft < 0 || currentQuestion === questions.length) {
@@ -105,4 +105,16 @@ function startTimer() {
       setTimeout(gameOver, 1000);
     }
   }, 1000);
+}
+
+// Displaying questions once quiz begins
+function showQuestions() {
+  startpageEl.innerHTML = "";
+  endpageContainerEl.innerHTML = "";
+
+  if (currentQuestion === questions.length) {
+    return;
+  }
+
+var 
 }
