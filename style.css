@@ -28,7 +28,7 @@ body {
   text-align: center;
 }
 
-.startpage-buttons {
+#view-scores {
   background-color: rgb(80, 2, 114);
   color: white;
   border: none;
