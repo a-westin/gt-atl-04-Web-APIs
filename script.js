@@ -185,4 +185,20 @@ function quizEnd() {
   label.setAttribute("class", "form-group mb-2");
   label.textContent = "Enter initials: ";
   highscoresEl.appendChild(label);
+
+  var userInput = document.createElement("input");
+  userInput.setAttribute("type", "text");
+  userInput.setAttribute("class", "form-control mr-2 ml-2 mb-2");
+  highscoresEl.appendChild(userInput);
+
+  var submitBtn = document.createElement("button");
+  submitBtn.setAttribute("class", "btn");
+  submitBtn.textContent = "Submit";
+  highscoresEl.appendChild(submitBtn);
+  endpageContainerEl.appendChild(highscoresEl);
+  // Event listener for submit btn
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  });
 }
