@@ -1,40 +1,21 @@
 // Accessing HTML elements in the DOM
-var startButtonEl = document.getElementById("start-button");
 var startpageEl = document.getElementById("startpage");
-
 var quizContainerEl = document.getElementById("quiz-container");
-var quizQuestionsEl = document.getElementById("questions");
-var endpageContainerEl = document.getElementById("endpage-container");
-var endpageButtonsEl = document.getElementById("endpage-btns");
-
-var highScores = document.getElementById("high-scores");
+var resultsContainerEl = document.getElementById("results-container");
+var endpageContainerEl = document.getElementById("endpage");
+var highScores = document.getElementById("highscores");
 var timer = document.getElementById("timer");
 
-var questionBtnOne = document.getElementById("one");
-var questionBtnTwo = document.getElementById("two");
-var questionBtnThree = document.getElementById("three");
-var questionBtnFour = document.getElementById("four");
-
+// Defining other variables 
 var currentQuestion = 0;
 var score = 0;
 var totalQuestions = questions.length;
 var timerInterval;
 var timeLeft = 60;
+var wrongAnswer = timeLeft - 10;
 var highScores = [];
 var finalScore;
 
-// Showing/hiding the start button
-// function myFunction() {
-//   if (startButtonEl.style.display === "none") {
-//     startButtonEl.style.display = "block";
-//   } else {
-//     startButtonEl.style.display = "none";
-//   }
-// }
-
-// startButtonEl.addEventListener("click", myFunction);
-
-// Assigning the questions array
 var questions = [
   {
     question: "Commonly used data types do NOT include:",
