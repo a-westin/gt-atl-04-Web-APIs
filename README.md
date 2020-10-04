@@ -31,9 +31,9 @@ At that point, the player is prompted to enter their initials for a highscores b
 
 #### Credits
 
-As always, W3schools.com was quite helpful, especially when I was looking into local storage. Additionally, I found a very helpful [walkthrough] (https://www.taniarascia.com/how-to-use-local-storage-with-javascript/) that was particularly helpful for me to understand the methods and get the syntax down. 
+As always, W3schools.com was quite helpful, especially when I was looking into local storage. Additionally, I found a very helpful [walkthrough](https://www.taniarascia.com/how-to-use-local-storage-with-javascript/) that was particularly helpful for me to understand the methods and get the syntax down. 
 
-When it came to creating my index.html skeleton and deciding how to define the quiz questions array, I looked to [this] (https://www.sitepoint.com/simple-javascript-quiz/) tutorial for assistance. 
+When it came to creating my index.html skeleton and deciding how to define the quiz questions array, I looked to [this](https://www.sitepoint.com/simple-javascript-quiz/) tutorial for assistance. 
 
 ##### License
 
