@@ -126,4 +126,42 @@ function showQuestions() {
   quizContainerEl.appendChild(questionEl);
   var choices = document.createElement("ul");
   choices.setAttribute("class", "col-lg-12");
+
+  // For loop to loop through possible answers
+  for (
+    var answersArray = 0;
+    answersArray < questions[currentQuestion].possibleAnswers.length;
+    answersArray++
+  ) {
+    answersEl = document.createElement("li");
+    var answerBtn = document.createElement("button");
+    answerBtn.setAttribute("class", "btn");
+    answerBtn.textContent =
+      questions[currentQuestion].possibleAnswers[answersArray];
+    answersEl.appendChild(answerBtn);
+    choices.appendChild(answersEl);
+  }
+  quizContainerEl.appendChild(choices);
+  quizContainerEl.addEventListener("click", function (event) {
+    event.stopImmediatePropagation();
+    if (event.target.matches("button")) {
+      // If statement for right answer
+      if (event.target.textContent == questions[currentQuestion].rightAnswer) {
+        quizContainerEl.innerHTML = "";
+        var rightAnswerEl = document.createElement("dialog");
+        rightAnswerEl.textContent = "Correct!";
+        resultsContainerEl.appendChild(rightAnswerEl);
+        currentQuestion++;
+      }
+      // Else statment for wrong answer
+      else {
+        timeLeft = timeLeft - 10;
+        quizContainerEl.innerHTML = "";
+        var wrongAnswerEl = document.createElement("dialog");
+        wrongAnswerEl.textContent = "Wrong!";
+        resultsContainerEl.appendChild(wrongAnswerEl);
+        currentQuestion++;
+      }
+    }
+  });
 }
