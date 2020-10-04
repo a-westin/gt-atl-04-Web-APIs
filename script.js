@@ -68,7 +68,7 @@ var questionsArray = [
       "3. For loop",
       "4. Console.log",
     ],
-    answer: "4. Console.log",
+    rightAnswer: "4. Console.log",
   },
 ];
 
@@ -84,6 +84,7 @@ function startApp() {
     "Try to answer the following code-related questions within the time limit. \n Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
   startpageEl.appendChild(instructions);
   var startButton = document.createElement("button");
+  startButton.setAttribute("class", "btn");
   startButton.textContent = "Start Quiz";
   startpageEl.appendChild(startButton);
   timer.textContent = "Time: ";
@@ -152,9 +153,18 @@ function showQuestions() {
         quizContainerEl.innerHTML = "";
         var rightAnswerEl = document.createElement("caption");
         rightAnswerEl.textContent = "Correct!";
+        rightAnswerEl.style.visibility = "hidden";
         resultsContainerEl.appendChild(rightAnswerEl);
         currentQuestion++;
         setTimeout(showQuestions, 1000);
+        showCorrect();
+        function showCorrect() {
+          if (rightAnswerEl.style.visibility === "hidden") {
+            rightAnswerEl.style.visibility = "visible";
+          } else {
+            rightAnswerEl.style.visibility = "hidden";
+          }
+        }
       }
       // Else statement for wrong answer
       else {
@@ -162,9 +172,18 @@ function showQuestions() {
         quizContainerEl.innerHTML = "";
         var wrongAnswerEl = document.createElement("caption");
         wrongAnswerEl.textContent = "Wrong!";
+        wrongAnswerEl.style.visibility = "hidden";
         resultsContainerEl.appendChild(wrongAnswerEl);
         currentQuestion++;
         setTimeout(showQuestions, 1000);
+        showWrong();
+        function showWrong() {
+          if (wrongAnswerEl.style.visibility === "hidden") {
+            wrongAnswerEl.style.visibility = "visible";
+          } else {
+            wrongAnswerEl.style.visibility = "hidden";
+          }
+        }
       }
     }
   });
@@ -205,21 +224,21 @@ function quizEnd() {
     event.preventDefault();
     event.stopImmediatePropagation();
 
-    var initials = userInput.value;
+    var userInitials = userInput.value;
     // Storing highscores info
-    if (JSON.parse(localStorage.getItem("highscores")) == null) {
-      highScores.push({ initials: initials, score: finalScore });
-      localStorage.setItem("highscores", JSON.stringify(highScores));
+    if (JSON.parse(localStorage.getItem("highscore")) == null) {
+      highScores.push({ initials: userInitials, score: finalScore });
+      localStorage.setItem("highscore", JSON.stringify(highScores));
     } else if (highScores.length > 0) {
-      highScores.push({ initials: initials, score: finalScore });
-      localStorage.setItem("highscores", JSON.stringify(highScores));
+      highScores.push({ initials: userInitials, score: finalScore });
+      localStorage.setItem("highscore", JSON.stringify(highScores));
     } else {
-      var scoreStorage = JSON.parse(localStorage.getItem("highscores"));
+      var scoreStorage = JSON.parse(localStorage.getItem("highscore"));
       for (var i = 0; i < scoreStorage.length; i++) {
         highScores.push(scoreStorage[i]);
       }
-      highScores.push({ initials: initials, score: finalScore });
-      localStorage.setItem("highscores", JSON.stringify(highScores));
+      highScores.push({ initials: userInitials, score: finalScore });
+      localStorage.setItem("highscore", JSON.stringify(highScores));
     }
     viewScores();
   });
@@ -256,22 +275,25 @@ function viewScores() {
     var rowEl = document.createElement("tr");
     var initialsEl = document.createElement("td");
     var scoresEl = document.createElement("td");
-    var savedScores = JSON.parse(localStorage.getItem("highscores"));
+    var savedScores = JSON.parse(localStorage.getItem("highscore"));
     initialsEl.textContent = savedScores[highscoresArray].initials;
     scoresEl.textContent = savedScores[highscoresArray].score;
     rowEl.appendChild(initialsEl);
     rowEl.appendChild(scoresEl);
+    scoresTable.appendChild(rowEl);
   }
   highscoresEl.appendChild(scoresTable);
 
   // Button to go back
+  var buttonEl = document.createElement("div");
+  buttonEl.setAttribute("class", "col-lg-12");
   var backBtn = document.createElement("button");
   backBtn.setAttribute("class", "btn");
   backBtn.textContent = "Go back";
   highscoresEl.appendChild(backBtn);
   //Button to clear scores
   var clearScoresBtn = document.createElement("button");
-  clearScoresBtn.setAttribute("class", "btn");
+  clearScoresBtn.setAttribute("class", "btn", "id", "clear");
   clearScoresBtn.textContent = "Clear highscores";
   highscoresEl.appendChild(clearScoresBtn);
 
